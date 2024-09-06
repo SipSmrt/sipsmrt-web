@@ -451,8 +451,11 @@
 			<div class="s-title">
 				<h2>Get in Touch!</h2>
 				<p>Contact us below!</p>
-			</div>
-			<form class="contact-form" target="_blank" action="https://formsubmit.co/76006a0950d92f6e6f3a9c2b6b7d8a4c" method="POST"></form>
+			</div> 
+			<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+				<input type="hidden" name="access_key" value="2f5c330e-a9dd-46f8-b4b2-aa6014b02739">
+
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<input type="text" class="form-control" placeholder="Name" name="name" required />
@@ -467,6 +470,7 @@
 				<div class="form-group">
 					<textarea class="form-control" rows="5" placeholder="Message" name="message" required></textarea>
 				</div>
+				<input type="hidden" name="redirect" value="https://sipsmrt.com/thanks.html">
 				<div class="text-lg-right">
 					<button type="submit" class="btn fill-style">SEND MESSAGE</button>
 					<button type="reset" class="btn">RESET</button>
