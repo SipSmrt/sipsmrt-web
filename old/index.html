@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SipSmrt</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/lightcase.css">
+	<link rel="stylesheet" href="assets/css/simple-line-icons.css">
+	<link rel="stylesheet" href="assets/css/ElegantIcons.css">
+	<link rel="stylesheet" href="assets/css/swiper.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/home-style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-spy="scroll" data-target=".navbar">
+	<!-- icon list: https://iconduck.com/search?query=vectorSetIds:1248 -->
+
+	<!-- HEADER -->
+	<header class="header">
+		<nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img class="white-logo" src="assets/images/logo_light.png" alt="" width="250px">
+					<img class="color-logo" src="assets/images/logo_blue_dark.png" alt="" width="250px">
+				</a>
+				<button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="menu-toggle">
+                        <span class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <span class="hamburger-cross">
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </span>
+				</button>
+				<div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                About
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="under_construction.html">Fitness</a></li>
+                                <li class="nav-item"><a class="nav-link" href="under_construction.html">Healthcare</a></li>
+                                <li class="nav-item"><a class="nav-link" href="under_construction.html">Who we are</a></li>
+                            </ul>
+                        </li>
+						<li class="nav-item">
+							<a class="nav-link nav-link-scroll" href="#products">Products</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link nav-link-scroll" href="#features">Features</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link nav-link-scroll" href="#contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<div class="nav-button order-2 order-lg-3">
+					<a href="#">Download</a>
+				</div>
+			</div>
+		</nav>
+	</header><!-- header -->
+
+
+	<!-- BANNER -->
+	<section class="home-3-banner main-banner" id="banner">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-md-7">
+					<div class="banner-content">
+						<div class="ovh">
+							<h2 class="title wow slideInDownBig" data-wow-duration=".65s"  data-wow-delay=".1s">Hydration, but smarter.</h2>
+						</div>
+						<div class="ovh">
+							<span class="sub-title wow slideInDownBig" data-wow-duration=".65s" data-wow-delay=".3s">Welcome to the best hydration product on the market</span>
+						</div>
+						<div class="btn-wrapper ovh">
+							<a class="btn store-btn fill-style wow slideInDownBig" data-wow-duration=".65s" data-wow-delay=".4s" href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="26px"><path fill-rule="evenodd"  fill="rgb(96, 56, 247)" d="M19.618,13.605 L15.283,16.531 L12.240,13.090 L15.570,9.324 L19.618,12.058 C19.857,12.219 20.000,12.508 20.000,12.832 C20.000,13.154 19.857,13.442 19.618,13.605 ZM0.662,-0.003 L10.427,5.850 L14.882,8.859 L11.691,12.469 L0.662,-0.003 ZM-0.000,25.689 L0.010,0.502 L11.142,13.090 L-0.000,25.689 ZM14.596,16.996 L10.443,19.799 L0.824,25.998 L11.691,13.710 L14.596,16.996 Z"/></svg> <span>Google Play</span></a>
+							<a class="btn store-btn wow slideInDownBig" data-wow-duration=".65s" data-wow-delay=".6s"  href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21px" height="24px"><path fill-rule="evenodd"  fill="rgb(255, 255, 255)" d="M18.423,9.825 C17.802,10.691 17.490,11.644 17.490,12.687 C17.490,13.828 17.820,14.856 18.481,15.769 C19.141,16.681 19.897,17.262 20.749,17.510 C20.376,18.662 19.787,19.814 18.983,20.967 C17.749,22.773 16.519,23.675 15.294,23.675 C14.825,23.675 14.155,23.527 13.284,23.233 C12.461,22.938 11.738,22.792 11.116,22.792 C10.532,22.792 9.853,22.943 9.077,23.248 C8.302,23.561 7.671,23.716 7.182,23.716 C5.728,23.716 4.287,22.524 2.861,20.138 C1.454,17.732 0.751,15.414 0.751,13.184 C0.751,11.082 1.292,9.360 2.373,8.014 C3.445,6.687 4.804,6.023 6.450,6.023 C7.139,6.023 7.986,6.162 8.991,6.438 C9.987,6.715 10.647,6.854 10.973,6.854 C11.403,6.854 12.088,6.696 13.026,6.384 C14.002,6.071 14.830,5.913 15.509,5.913 C16.648,5.913 17.667,6.213 18.567,6.811 C19.065,7.143 19.562,7.605 20.060,8.194 C19.304,8.812 18.759,9.355 18.423,9.825 ZM13.600,5.084 C13.083,5.581 12.566,5.913 12.049,6.080 C11.695,6.181 11.197,6.259 10.556,6.314 C10.585,4.940 10.958,3.757 11.676,2.761 C12.384,1.776 13.581,1.093 15.265,0.715 C15.275,0.743 15.287,0.794 15.301,0.867 C15.315,0.941 15.327,0.992 15.337,1.020 C15.337,1.057 15.339,1.102 15.344,1.157 C15.349,1.213 15.351,1.259 15.351,1.297 C15.351,1.858 15.212,2.486 14.935,3.175 C14.648,3.867 14.203,4.503 13.600,5.084 Z"/></svg> <span>App Store</span></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-5 h3-banner-img-wrapper">
+					<img src="assets/images/phone_boot.png" class="h3-banner wow slideInDown" data-wow-delay=".1s" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="wave">
+			<div class="h3-wabe"><img src="assets/images/shape-h2.png" alt=""></div>
+		</div>
+	</section><!-- banner -->
+
+
+	<!-- BLURB -->
+	<section class="h3-feature s-padding bg-color" id="app-about">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-4">
+					<div class="icon-box style-centered">
+						<div class="icon-box-icon">
+							<i class="icon_piechart"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Effortlessly track water intake</h3>
+							<p>When paired with a SipSmrt Boot, you don't even need to lift a finger.</p>
+						</div> 
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="icon-box style-centered">
+						<div class="icon-box-icon">
+							<i class="icon_balance"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Calibrated for you</h3>
+							<p>Using popular studies and biometrics, we will calculate an optimum hydration value for you.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="icon-box style-centered">
+						<div class="icon-box-icon">
+							<i class="icon_heart"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Stay healthy</h3>
+							<p>According to the NIH, those who stay well-hydrated appear to be healthier, develop fewer chronic conditions, and live longer!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- blurb -->
+
+
+	<!-- PRODUCT -->
+	<section class="h3-about s-padding" id="products">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4">
+					<div class="about-content">
+						<h2>Get the SipSmrt Boot!</h2>
+						<p>Automatically track your water intake and tackle hydration with ease!</p>
+						<div class="btn-wrapper">
+							<a href="#" class="btn">Size Guide</a>
+							<a href="#" class="btn fill-style">Pre-order</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 offset-lg-2">
+					<div class="img-wrapper img-center h3-about-img-wrapper">
+						<img src="assets/images/2-bottle.png" class="about-img1 wow slideInUpAlt" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="floating-shapes">
+			<span data-parallax='{"x": 150, "y": -20, "rotateZ":500}'><img src="assets/images/fl-shape-1.png" alt=""></span>
+			<span data-parallax='{"x": 250, "y": 150, "rotateZ":500}'><img src="assets/images/fl-shape-2.png" alt=""></span>
+			<span data-parallax='{"x": -180, "y": 80, "rotateY":2000}'><img src="assets/images/fl-shape-3.png" alt=""></span>
+			<span data-parallax='{"x": -20, "y": 180}'><img src="assets/images/fl-shape-4.png" alt=""></span>
+			<span data-parallax='{"x": 300, "y": 70}'><img src="assets/images/fl-shape-5.png" alt=""></span>
+			<span data-parallax='{"x": 250, "y": 180, "rotateZ":1500}'><img src="assets/images/fl-shape-6.png" alt=""></span>
+			<span data-parallax='{"x": 180, "y": 10, "rotateZ":2000}'><img src="assets/images/fl-shape-7.png" alt=""></span>
+			<span data-parallax='{"x": 250, "y": -30, "rotateX":2000}'><img src="assets/images/fl-shape-8.png" alt=""></span>
+			<span data-parallax='{"x": 60, "y": -100}'><img src="assets/images/fl-shape-9.png" alt=""></span>
+			<span data-parallax='{"x": -30, "y": 150, "rotateZ":1500}'><img src="assets/images/fl-shape-10.png" alt=""></span>
+		</div>
+	</section><!-- product -->
+
+
+	<!-- FEATURES -->
+	<section class="h3-awesome-feature bg-color s-padding" id="features">
+		<div class="container">
+			<div class="s-title">
+				<h2 class="wow">Features</h2>
+				<p>SipSmrt does more than just track water intake</p>
+			</div>
+			<!-- APP SCREENSHOTS -->
+			<section class="h6-app-screenshot" id="screenshot">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-10">
+							<div class="swiper-container app-screenshot-slider-2">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="app-screenshot-item style-2">
+											<img src="assets/images/screenshot1.jpg" alt="">
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="app-screenshot-item style-2">
+											<img src="assets/images/screenshot2.jpg" alt="">
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="app-screenshot-item style-2">
+											<img src="assets/images/screenshot3.jpg" alt="">
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="app-screenshot-item style-2">
+											<img src="assets/images/screenshot4.jpg" alt="">
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="app-screenshot-item style-2">
+											<img src="assets/images/screenshot5.jpg" alt="">
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!-- app-screenshot -->
+			<!-- FEATURE BOXES -->
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="icon-box style-boxed-ltr">
+						<div class="icon-box-icon">
+							<i class="icon_mug"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Factor in other beverages</h3>
+							<p>Did you have a cup of coffee this morning? Let's count that too!<br>SipSmrt uses hydration coefficients to most accurately calculate your hydration.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="icon-box style-boxed-ltr">
+						<div class="icon-box-icon">
+							<i class="icon_heart"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Health App Pairing</h3>
+							<p>SipSmrt pairs with your phone's health app for heightened accuracy and more optimal recommendations</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="icon-box style-boxed-ltr">
+						<div class="icon-box-icon">
+							<i class="icon_datareport"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Track your goals</h3>
+							<p>With SipSmrt, you can view your hydration history to see if you're on track!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="icon-box style-boxed-ltr">
+						<div class="icon-box-icon">
+							<i class="icon_error-triangle"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">No bottle's left behind</h3>
+							<p>With the SipSmrt Boot, we'll alert you whenever you leave your water bottle behind!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="icon-box style-boxed-ltr">
+						<div class="icon-box-icon">
+							<i class="icon_lightbulb_alt"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Smart Notifications</h3>
+							<p>SipSmrt knows when you're falling behind your goals, and it'll remind you right when you need to catch up!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="icon-box style-boxed-ltr">
+						<div class="icon-box-icon">
+							<i class="icon_group"></i>
+						</div>
+						<div class="icon-box-details">
+							<h3 class="icon-box-title">Group Management</h3>
+							<p>Create groups to view other SipSmrt users' hydration values.<br>Great for nurses, doctors, coaches, caretakers, and more!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- features -->
+
+	<!-- VIDEO -->
+	<!-- <section class="video-sec bg-img bg-2">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="video-play-content">
+						<div class="video-play-btn">
+							<a href="https://player.vimeo.com/video/62742116" data-rel="lightbox-popup"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="20px">
+							<path fill-rule="evenodd"  fill="rgb(255, 255, 255)" d="M-0.001,1.104 C-0.001,2.027 -0.001,18.234 -0.001,18.872 C-0.001,19.698 0.872,20.312 1.734,19.829 C2.425,19.442 13.233,11.631 14.411,10.962 C15.185,10.523 15.172,9.478 14.411,9.038 C13.563,8.548 2.702,0.697 1.699,0.152 C0.964,-0.247 -0.001,0.194 -0.001,1.104 Z"/></svg>
+							</a>
+						</div>
+						<h2 class="title">WATCH THE VIDEO</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> video -->
+
+	
+	<!-- TESTIMONIAL -->
+	<section class="h6-testimonial s-padding bg-color">
+		<div class="container">
+			<div class="s-title">
+				<h2>Testimonials</h2>
+				<p>Here's what the experts are saying...</p>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="testimonial-slider-wrapper testimonial-one-item-slider-wrapper">
+						<div class="swiper-container testimonial-one-item-slider">
+						    <div class="swiper-wrapper">
+						        <div class="swiper-slide">
+						        	<div class="testimonial-item style-2">
+						        		<span class="quote-mark">,,</span>
+						        		<div class="testimonial-content">
+						        			Drinking enough water each day is crucial for many reasons: to regulate body temperature, keep joints lubricated, prevent infections, deliver nutrients to cells, and keep organs functioning properly... [it] also improves sleep quality, cognition, and mood.
+						        		</div>
+						        		<div class="testimonial-meta">
+						        			<div class="author-img">
+						        				<img src="assets/images/test_harvard.jpg" alt="">
+						        			</div>
+						        			<div class="t-meta-info">
+						        				<h4 class="reviewer-name">Harvard</h4>
+						        			</div>
+						        		</div>
+						        	</div>
+						        </div>
+						        <div class="swiper-slide">
+						        	<div class="testimonial-item style-2">
+						        		<span class="quote-mark">,,</span>
+						        		<div class="testimonial-content">
+						        			How much you should drink each day depends on many factors, including your age, where you live, and your body weight.
+						        		</div>
+						        		<div class="testimonial-meta">
+						        			<div class="author-img">
+						        				<img src="assets/images/test_nih.jpg" alt="">
+						        			</div>
+						        			<div class="t-meta-info">
+						        				<h4 class="reviewer-name">National Institute of Health</h4>
+						        			</div>
+						        		</div>
+						        	</div>
+						        </div>
+						        <div class="swiper-slide">
+						        	<div class="testimonial-item style-2">
+						        		<span class="quote-mark">,,</span>
+						        		<div class="testimonial-content">
+						        			Drinking enough water keeps the body hydrated, which helps the heart more easily pump blood through the body... If you’re well hydrated, your heart doesn’t have to work as hard.
+						        		</div>
+						        		<div class="testimonial-meta">
+						        			<div class="author-img">
+						        				<img src="assets/images/test_heart.jpg" alt="">
+						        			</div>
+						        			<div class="t-meta-info">
+						        				<h4 class="reviewer-name">American Heart Association</h4>
+						        			</div>
+						        		</div>
+						        	</div>
+						        </div>
+						    </div>
+						</div>
+						<div class="testimonial-btn-next"><i class="arrow_right"></i></div>
+						<div class="testimonial-btn-prev"><i class="arrow_left"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- testimonial -->
+
+
+	<!-- TEAM -->
+	<section class="team s-padding" id="team">
+		<div class="container">
+			<div class="s-title">
+				<h2>Meet the Team</h2>
+				<p>We're three students from Rensselaer Polytechnic Institute</p>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="team-member">
+						<div class="member-img">
+							<img src="assets/images/headshot_matt.jpg" alt="">
+							<ul class="social-profile rounded">
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+						<div class="member-details">
+							<h2 class="name">Matthew Emerson</h2>
+							<span class="deg">Chief Operations Officer</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="team-member">
+						<div class="member-img">
+							<img src="assets/images/headshot_cole.jpg" alt="">
+							<ul class="social-profile rounded">
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+						<div class="member-details">
+							<h2 class="name">Cole Khanjari</h2>
+							<span class="deg">Chief Executive Officer</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="team-member">
+						<div class="member-img">
+							<img src="assets/images/headshot_tommy.jpg" alt="">
+							<ul class="social-profile rounded">
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-github"></i></a></li>
+							</ul>
+						</div>
+						<div class="member-details">
+							<h2 class="name">Thomas Bird</h2>
+							<span class="deg">Head of Software</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- team -->
+
+	<!-- CONTACT -->
+	<section class="h3-get-the-app s-padding bg-color" id="contact">
+		<div class="container">
+			<div class="s-title">
+				<h2>Get in Touch!</h2>
+				<p>Contact us below!</p>
+			</div> 
+			<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+				<input type="hidden" name="access_key" value="2f5c330e-a9dd-46f8-b4b2-aa6014b02739">
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<input type="text" class="form-control" placeholder="Name" name="name" required />
+					</div>
+					<div class="form-group col-md-6">
+						<input type="email" class="form-control" placeholder="Email" name="email" required>
+					</div>
+				</div>
+				<!-- <div class="form-group">
+					<input type="text" class="form-control" placeholder="Subject" name="subject" required>
+				</div> -->
+				<div class="form-group">
+					<textarea class="form-control" rows="5" placeholder="Message" name="message" required></textarea>
+				</div>
+				<input type="hidden" name="redirect" value="https://sipsmrt.com/thanks.html">
+				<div class="text-lg-right">
+					<button type="submit" class="btn fill-style">SEND MESSAGE</button>
+					<button type="reset" class="btn">RESET</button>
+				</div>
+			</form>
+		</div>
+	</section><!-- contact -->
+
+	<!-- FOOTER -->
+	<footer class="footer">
+		<div class="f-copyright-area h3-style">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-md-6">
+						<p class="copyright text-center text-md-left mb-2 mb-md-0">© 2024 SipSmrt ALL RIGHTS RESERVED</p>
+					</div>
+					<ul class="col-md-6 social-profile rounded large text-center text-md-right">
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer><!-- footer -->
+	
+	<div class="scroll-top"><i class="arrow_carrot-up"></i></div>
+
+	<script src="assets/js/jquery-2.2.3.min.js"></script>
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/waypoints.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/swiper.min.js"></script>
+	<script src="assets/js/jquery.events.touch.min.js"></script>
+	<script src="assets/js/lightcase.js"></script>
+	<script src="assets/js/jquery.counterup.min.js"></script>
+	<script src="assets/js/TweenMax.min.js"></script>
+	<script src="assets/js/jquery.wavify.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/jquery.parallax-scroll.js"></script>
+	<script src="assets/js/particles.min.js"></script>
+	<script src="assets/js/jarallax.min.js"></script>
+	<script src="assets/js/jarallax-video.min.js"></script>
+	<script src="assets/js/form-validator.js"></script>
+	<script src="assets/js/custom.js"></script>
+</body>
+</html>
