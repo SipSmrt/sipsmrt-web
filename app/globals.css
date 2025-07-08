@@ -1,5 +1,11 @@
+@config "../tailwind.config.ts";
+
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/container-queries";
+@plugin "@tailwindcss/forms";
 
 @custom-variant dark (&:is(.dark *));
 
