@@ -50,7 +50,7 @@ export default function FeaturesSection() {
             <div className="inline-block rounded-lg bg-sky-100 px-3 py-1 text-sm text-sky-700">Features</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Smart Hydration Technology</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our innovative products combine cutting-edge technology with practical design to keep you perfectly
+              Our products combine cutting-edge technology with practical design to keep you perfectly
               hydrated.
             </p>
           </div>
@@ -58,23 +58,23 @@ export default function FeaturesSection() {
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
             <Droplets className="h-12 w-12 text-sky-600" />
-            <h3 className="text-xl font-bold">Hydration Tracking</h3>
+            <h3 className="text-xl font-bold">Precise Tracking</h3>
             <p className="text-center text-muted-foreground">
-              Precise sensors measure your water intake and sync with our app in real-time.
+              Intelligent sensors measure your water intake and sync with our app in real-time.
             </p>
           </div>
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
             <Smartphone className="h-12 w-12 text-sky-600" />
-            <h3 className="text-xl font-bold">Mobile App</h3>
+            <h3 className="text-xl font-bold">Mobile Benefits</h3>
             <p className="text-center text-muted-foreground">
-              Track your hydration goals, set reminders, and view insights on your hydration habits.
+              Track your hydration goals, get reminders, and view insights on your hydration health & habits.
             </p>
           </div>
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
             <Battery className="h-12 w-12 text-sky-600" />
             <h3 className="text-xl font-bold">Long Battery Life</h3>
             <p className="text-center text-muted-foreground">
-              30-day battery life ensures your hydration tracking never stops.
+              Several days of battery life ensures your hydration tracking never stops.
             </p>
           </div>
         </div>

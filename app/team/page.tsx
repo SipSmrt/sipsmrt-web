@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Linkedin, Twitter, Mail } from "lucide-react"
+import { ArrowLeft, Linkedin, Mail, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Footer from "@/components/footer"
@@ -8,58 +8,66 @@ import Footer from "@/components/footer"
 export default function TeamPage() {
   const teamMembers = [
     {
-      name: "Dr. Sarah Chen",
-      role: "CEO & Co-Founder",
-      bio: "Former Stanford researcher with 15+ years in biomedical engineering. Led breakthrough studies in hydration science.",
-      image: "/placeholder.svg?height=300&width=300&text=Sarah+Chen",
-      linkedin: "#",
-      twitter: "#",
-      email: "sarah@sipsmrt.com",
+      name: "Cole Khanari",
+      role: "CEO",
+      bio: "B.S Mechanical Engineering | RPI",
+      image: "/img/team/cole.png",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/cole-khanjari/",
+        email: "colekhanjari@gmail.com",
+      },
     },
     {
-      name: "Marcus Rodriguez",
-      role: "CTO & Co-Founder",
-      bio: "Ex-Apple engineer specializing in IoT and sensor technology. 10+ patents in smart device innovation.",
-      image: "/placeholder.svg?height=300&width=300&text=Marcus+Rodriguez",
-      linkedin: "#",
-      twitter: "#",
-      email: "marcus@sipsmrt.com",
+      name: "Matt Emerson",
+      role: "COO",
+      bio: "B.S Mechanical Engineering | RPI",
+      image: "/img/team/matt.png",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/matthew-emerson-936646259/",
+        email: "matt@sipsmrt.com",
+      },
     },
     {
-      name: "Dr. Emily Watson",
-      role: "Head of Research",
-      bio: "PhD in Sports Medicine from Harvard. Published 50+ papers on hydration and athletic performance.",
-      image: "/placeholder.svg?height=300&width=300&text=Emily+Watson",
-      linkedin: "#",
-      twitter: "#",
-      email: "emily@sipsmrt.com",
+      name: "Thomas Bird",
+      role: "CTO",
+      bio: "B.S Computer Science | RPI",
+      image: "/img/team/tommy.png",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/tommycbird/",
+        email: "tommycbird@gmail.com",
+        github: "https://github.com/tommycbird",
+      },
     },
     {
-      name: "James Park",
-      role: "VP of Engineering",
-      bio: "Former Tesla engineer with expertise in battery technology and sustainable design. MIT graduate.",
-      image: "/placeholder.svg?height=300&width=300&text=James+Park",
-      linkedin: "#",
-      twitter: "#",
-      email: "james@sipsmrt.com",
+      name: "Abby Shellard",
+      role: "Marketing & Graphic Designer",
+      bio: "B.F.A Graphic Design | Clemson University",
+      image: "/img/team/abby.png",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/abigailshellard/",
+        email: "abbyshellard@gmail.com",
+      },
     },
     {
-      name: "Dr. Aisha Patel",
-      role: "Head of Health Sciences",
-      bio: "Board-certified physician and digital health expert. Pioneered telemedicine hydration protocols.",
-      image: "/placeholder.svg?height=300&width=300&text=Aisha+Patel",
-      linkedin: "#",
-      twitter: "#",
-      email: "aisha@sipsmrt.com",
+      name: "Nevin Joshy",
+      role: "Software Engineer",
+      bio: "Computer Science Undergraduate Student | RPI",
+      image: "/img/team/nevin.png",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/nevin-v-joshy/",
+        email: "nevin@sipsmrt.com",
+        github: "https://github.com/nevin-joshy",
+      },
     },
     {
-      name: "David Kim",
-      role: "VP of Product Design",
-      bio: "Award-winning industrial designer from IDEO. 15+ years creating user-centered health products.",
-      image: "/placeholder.svg?height=300&width=300&text=David+Kim",
-      linkedin: "#",
-      twitter: "#",
-      email: "david@sipsmrt.com",
+      name: "Jack Berkowitz",
+      role: "Electrical Engineer",
+      bio: "B.S Electrical Engineering | University of San Diego",
+      image: "/img/team/jack.png",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/jack-m-berkowitz/",
+        email: "jack@sipsmrt.com",
+      },
     },
   ]
 
@@ -84,29 +92,41 @@ export default function TeamPage() {
             {teamMembers.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-0">
-                  <div className="relative h-80 w-full">
-                    <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+                  <div className="w-full flex justify-center p-4">
+                    <Image
+                      src={member.image || "/placeholder.svg"}
+                      alt={member.name}
+                      width={264}
+                      height={370}
+                      className="rounded-lg"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                     <p className="text-sky-600 font-medium mb-3">{member.role}</p>
                     <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{member.bio}</p>
-                    <div className="flex gap-3">
-                      <Button variant="outline" size="sm" asChild>
-                        <Link href={member.linkedin} aria-label={`${member.name} LinkedIn`}>
-                          <Linkedin className="h-4 w-4" />
-                        </Link>
-                      </Button>
-                      <Button variant="outline" size="sm" asChild>
-                        <Link href={member.twitter} aria-label={`${member.name} Twitter`}>
-                          <Twitter className="h-4 w-4" />
-                        </Link>
-                      </Button>
-                      <Button variant="outline" size="sm" asChild>
-                        <Link href={`mailto:${member.email}`} aria-label={`Email ${member.name}`}>
-                          <Mail className="h-4 w-4" />
-                        </Link>
-                      </Button>
+                    <div className="flex gap-3 flex-wrap">
+                      {member.socials?.linkedin && (
+                        <Button variant="outline" size="sm" asChild>
+                          <Link href={member.socials.linkedin} aria-label={`${member.name} LinkedIn`}>
+                            <Linkedin className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      )}
+                      {member.socials?.github && (
+                        <Button variant="outline" size="sm" asChild>
+                          <Link href={member.socials.github} aria-label={`${member.name} GitHub`}>
+                            <Github className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      )}
+                      {member.socials?.email && (
+                        <Button variant="outline" size="sm" asChild>
+                          <Link href={`mailto:${member.socials.email}`} aria-label={`Email ${member.name}`}>
+                            <Mail className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -118,11 +138,15 @@ export default function TeamPage() {
             <h2 className="text-2xl font-bold mb-4">Join Our Mission</h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               We're always looking for talented individuals who share our passion for innovation and improving human
-              health. Explore opportunities to join our growing team.
+              health. Reach out if you're interested in joining our team!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-sky-600 hover:bg-sky-700">View Open Positions</Button>
-              <Button variant="outline">Learn About Our Culture</Button>
+              <Button asChild className="bg-sky-600 hover:bg-sky-700">
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/">Back to Home</Link>
+              </Button>
             </div>
           </div>
         </section>

@@ -12,8 +12,6 @@ import {
   BarChart4,
   Users,
   Smartphone,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Footer from "@/components/footer"
@@ -48,31 +46,42 @@ export default function MobileAppPage() {
         <section className="mb-16">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div>
+              {/* LEFT SIDE: Header and download buttons */}
               <h1 className="text-4xl font-bold tracking-tight mb-4">SipSmrt Mobile App</h1>
               <p className="text-xl text-muted-foreground mb-6">
                 Your personal hydration coach, right in your pocket. Track, analyze, and optimize your hydration habits
                 with our intuitive mobile app.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button className="flex items-center gap-2 bg-black text-white hover:bg-gray-800">
-                  <Download className="h-5 w-5" />
-                  App Store
-                </Button>
-                <Button className="flex items-center gap-2 bg-sky-600 hover:bg-sky-700">
-                  <Download className="h-5 w-5" />
-                  Google Play
-                </Button>
+              <div className="flex flex-wrap justify-start gap-4 items-center">
+                <Link href="#">
+                  <Image
+                    src="/img/buttons/app_store_download_black.svg"
+                    alt="Download on the App Store"
+                    width={160}
+                    height={50}
+                    className="h-[50px] w-auto object-contain hover:opacity-80 transition"
+                  />
+                </Link>
+                <Link href="#">
+                  <Image
+                    src="/img/buttons/google_play_download.png"
+                    alt="Get it on Google Play"
+                    width={160}
+                    height={50}
+                    className="h-[50px] w-auto object-contain hover:opacity-80 transition"
+                  />
+                </Link>
               </div>
             </div>
-            <div className="flex justify-center">
-              <div className="relative h-[500px] w-[250px]">
-                <Image
-                  src="/img/mockups/phone_black.png?height=500&width=250"
-                  alt="SipSmrt App Screenshot"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+            {/* RIGHT SIDE: Phone Mockup */}
+            <div className="relative w-full max-w-[500px] h-[500px] mx-auto">
+              <Image
+                src="/img/mockups/phones/phone_black.png?height=500&width=250"
+                alt="SipSmrt App Screenshot"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </section>

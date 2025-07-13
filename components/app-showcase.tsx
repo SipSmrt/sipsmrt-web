@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { AppleIcon, SmartphoneIcon } from "lucide-react"
+import CheckBullet from "@/components/check-bullet"
 
 export default function AppShowcase() {
   return (
@@ -19,101 +19,41 @@ export default function AppShowcase() {
             </div>
             <ul className="grid gap-2 py-4">
               <li className="flex items-center gap-2">
-                <div className="rounded-full bg-sky-600 p-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
+                <CheckBullet />
                 <span>Personalized hydration goals based on your activity level</span>
               </li>
               <li className="flex items-center gap-2">
-                <div className="rounded-full bg-sky-600 p-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
+                <CheckBullet />
                 <span>Real-time tracking and progress visualization</span>
               </li>
               <li className="flex items-center gap-2">
-                <div className="rounded-full bg-sky-600 p-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
+                <CheckBullet />
                 <span>Smart reminders that adapt to your daily routine</span>
               </li>
               <li className="flex items-center gap-2">
-                <div className="rounded-full bg-sky-600 p-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
+                <CheckBullet />
                 <span>Health insights and weekly hydration reports</span>
               </li>
             </ul>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button className="flex items-center gap-2 bg-black text-white hover:bg-gray-800">
-                <AppleIcon className="h-5 w-5" />
-                App Store
-              </Button>
-              <Button className="flex items-center gap-2 bg-sky-600 hover:bg-sky-700">
-                <SmartphoneIcon className="h-5 w-5" />
-                Google Play
-              </Button>
+              <a href="/mobile-app" className="flex items-center gap-2">
+                <Button className="bg-sky-600 hover:bg-sky-700 w-full">
+                  Download Now
+                </Button>
+              </a>
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="relative h-[500px] w-[250px]">
+            <div className="relative w-full h-[300px] sm:h-[300px] md:h-[400px]">
               <Image
-                src="/img/mockups/phone_black.png?height=500&width=250"
+                src="/img/mockups/phones/phone_black.png?height=500&width=250"
                 alt="SipSmrt App Screenshot"
                 fill
                 className="object-contain"
               />
+              
+              {/* NEW: bottom fade gradient (always visible) */}
+              <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
           </div>
         </div>
