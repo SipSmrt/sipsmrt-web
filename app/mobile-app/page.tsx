@@ -46,7 +46,7 @@ export default function MobileAppPage() {
       {/* Hero section */}
       <div className="container pt-24 lg:pt-18 pb-2">
         <section className="mb-16">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="grid md:gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div>
               {/* LEFT SIDE: Header and download buttons */}
               <h1 className="text-4xl font-bold tracking-tight mb-4">SipSmrt Mobile</h1>
@@ -90,9 +90,9 @@ export default function MobileAppPage() {
 
             </div>
             {/* RIGHT SIDE: Phone Mockup */}
-            <div className="relative w-full max-w-[500px] h-[400px] mx-auto">
+            <div className="relative w-full max-w-[500px] h-[280px] md:h-[370px] mx-auto">
               <Image
-                src="/img/mockups/phones/phone_black.png?height=500&width=250"
+                src="/img/mockups/phones/phone_black.png?"
                 alt="SipSmrt App Screenshot"
                 fill
                 className="object-contain object-bottom z-0"

@@ -53,7 +53,8 @@ export default function SmrtBootPage() {
       {/* HERO content */}
       <div className="container pt-28 pb-8">
         <section className="mb-16">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="grid md:gap-12 items-center text-center justify-items-center lg:grid-cols-2 lg:text-left lg:justify-items-start">
+
             {/* LEFT COLUMN: Description */}
             <div>
               <h1 className="text-4xl font-bold tracking-tight mb-4">
@@ -64,7 +65,9 @@ export default function SmrtBootPage() {
                 Our innovative silicon boot attachment brings precision
                 tracking to your favorite bottle.
               </p>
-              <div className="flex items-center gap-4">
+
+              {/* Desktop-only price + button */}
+              <div className="hidden sm:flex items-center gap-4">
                 <div className="text-3xl font-bold">$49.99</div>
                 <Dialog>
                   <DialogTrigger asChild>
@@ -85,36 +88,72 @@ export default function SmrtBootPage() {
                     </DialogHeader>
                   </DialogContent>
                 </Dialog>
-
               </div>
             </div>
 
+
             {/* RIGHT COLUMN: Image + Color Tabs */}
-            <Tabs defaultValue="blue" className="w-full">
-              {colorVariants.map((variant) => (
-                <TabsContent
-                  key={variant.value}
-                  value={variant.value}
-                  className="flex flex-col items-center gap-4"
-                >
-                  <div className="relative h-[300px] w-[400px]">
-                    <Image
-                      src={variant.img}
-                      alt={variant.alt}
-                      fill
-                      className="object-contain drop-shadow-[0_20px_24px_rgba(0,0,0,0.6)]"
-                    />
-                  </div>
-                  <TabsList className={`grid grid-cols-3 w-full max-w-md`}>
-                    {colorVariants.map((tab) => (
-                      <TabsTrigger key={tab.value} value={tab.value}>
-                        {tab.label}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </TabsContent>
-              ))}
-            </Tabs>
+            <div className="w-full flex justify-center">
+              <Tabs defaultValue="blue" className="w-full max-w-sm">
+                {colorVariants.map((variant) => (
+                  <TabsContent
+                    key={variant.value}
+                    value={variant.value}
+                    className="flex flex-col items-center gap-4 overflow-visible"
+                  >
+                    {/* Boot Image */}
+                    <div className="p-4 sm:p-6">
+                      <div className="relative w-[260px] h-[210px] sm:w-[340px] sm:h-[260px]">
+                        <Image
+                          src={variant.img}
+                          alt={variant.alt}
+                          fill
+                          priority
+                          className="object-contain drop-shadow-[0_5px_7px_rgba(0,0,0,0.6)] md:drop-shadow-[0_20px_24px_rgba(0,0,0,0.6)]"
+                        />
+                      </div>
+                    </div>
+                    <TabsList className="grid grid-cols-3 gap-2 w-full">
+                      {colorVariants.map((tab) => (
+                        <TabsTrigger key={tab.value} value={tab.value}>
+                          {tab.label}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
+
+                    {/* Mobile-only price + button */}
+                    <div className="flex sm:hidden w-full justify-end mt-4 pr-1">
+                      <div className="flex flex-row items-center gap-3">
+                        <div className="text-2xl font-bold">$49.99</div>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button
+                              size="lg"
+                              className="bg-sky-600 hover:bg-sky-700 flex items-center gap-2"
+                            >
+                              <ShoppingCart className="h-5 w-5" />
+                              Add to Cart
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="sm:max-w-md">
+                            <DialogHeader>
+                              <DialogTitle>Coming Soon</DialogTitle>
+                              <DialogDescription>
+                                The SmrtBoot isn't quite ready for checkout yet. Stay tuned, pre-orders will be available soon!
+                              </DialogDescription>
+                            </DialogHeader>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </div>
+
+                  </TabsContent>
+                ))}
+              </Tabs>
+
+            
+            </div>
+
           </div>
         </section>
 

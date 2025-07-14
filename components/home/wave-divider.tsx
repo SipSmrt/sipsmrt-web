@@ -9,7 +9,9 @@ export default function WaveDivider() {
   const waveOffset = scrollPosition * 0.2
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
+    <div className="absolute inset-0 w-full h-[120%] overflow-hidden sm:translate-y-0 -translate-y-20">
+
+
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +41,12 @@ export default function WaveDivider() {
         </defs>
 
         {/* Darkest solid blue background at the very top - no gaps */}
-        <path d="M0,0 L1200,0 L1200,100 C1000,60 800,120 600,80 C400,40 200,100 0,60 Z" fill="#075985" />
+        <path d="M0,0 L1200,0 L1200,100 C1000,60 800,120 600,80 C400,40 200,100 0,60 Z" fill="#0C71A8FF" />
 
         {/* Slightly lighter blue waves layered on top */}
         <path
           d="M-175,-80 C125,40 325,-40 525,20 C725,80 925,0 1375,40 L1375,800 L-175,800 Z"
-          fill="#0369a1"
+          fill="#0B82C3FF"
           fillOpacity="0.8"
         />
 

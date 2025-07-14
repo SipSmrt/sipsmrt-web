@@ -85,24 +85,32 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-8 mb-16">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 pt-0 md:pt-6">
                 <CardContent className="p-0">
-                  <div className="w-full flex justify-center p-4">
+                  
+                  {/* Headshot image */}
+                  <div className="relative w-full aspect-[2/3] sm:aspect-auto sm:h-[370px] sm:w-[264px] mx-auto">
                     <Image
                       src={member.image || "/placeholder.svg"}
                       alt={member.name}
-                      width={264}
-                      height={370}
-                      className="rounded-lg"
+                      fill
+                      className="object-cover object-top rounded-t-lg md:rounded-lg"
+                      priority
                     />
                   </div>
+
+
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                    {/* Name */}
+                    <h3 className="text-l md:text-xl font-bold mb-1">{member.name}</h3>
+                    {/* Title */}
                     <p className="text-sky-600 font-medium mb-3">{member.role}</p>
+                    {/* Bio */}
                     <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{member.bio}</p>
-                    <div className="flex gap-3 flex-wrap">
+                    {/* Socials */}
+                    <div className="flex gap-3 flex-nowrap">
                       {member.socials?.linkedin && (
                         <Button variant="outline" size="sm" asChild>
                           <Link href={member.socials.linkedin} aria-label={`${member.name} LinkedIn`}>

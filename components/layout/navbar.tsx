@@ -103,7 +103,7 @@ export default function Navbar({ staticStyle = false }: NavbarProps) {
         </div>
 
         {/* RIGHT */}
-        <div className={`flex w-1/3 justify-end gap-4 ${isScrolled ? "" : "text-white"}`}>
+        <div className={`flex w-1/3 justify-end md:gap-4 ${isScrolled ? "" : "text-white"}`}>
           <Button
             onClick={() => setCartOpen(true)}
             variant="ghost"
