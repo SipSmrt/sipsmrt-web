@@ -12,7 +12,7 @@ import {
   CommandList,
   CommandItem,
 } from "@/components/ui/command"
-import { ChevronRight } from "lucide-react"
+import { Menu, ChevronRight } from "lucide-react"
 
 export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
   return (
@@ -21,16 +21,17 @@ export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
         <Button
           variant="outline"
           size="icon"
-          className={`lg:hidden ${isScrolled ? "bg-background/20" : "bg-transparent text-white border-white/20"}`}
+          className={`lg:hidden ${
+            isScrolled
+              ? "border-black bg-background/50 backdrop-blur-md"
+              : "border-white/100 bg-transparent text-white backdrop-blur-sm"
+          } rounded-lg transition duration-200`}
         >
           <span className="sr-only">Toggle menu</span>
-          <svg className="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor" fill="none" strokeWidth={2}>
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
+          <Menu className="h-6 w-6" />
         </Button>
       </PopoverTrigger>
+
 
       <PopoverContent
         side="bottom"
@@ -64,8 +65,8 @@ export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
                   <CommandList>
                     <CommandItem><Link href="/team" className="w-full">The Team</Link></CommandItem>
                     <CommandItem><Link href="/research" className="w-full">Research</Link></CommandItem>
-                    <CommandItem><Link href="/fitness" className="w-full">Fitness</Link></CommandItem>
-                    <CommandItem><Link href="/healthcare" className="w-full">Healthcare</Link></CommandItem>
+                    {/* <CommandItem><Link href="/fitness" className="w-full">Fitness</Link></CommandItem>
+                    <CommandItem><Link href="/healthcare" className="w-full">Healthcare</Link></CommandItem> */}
                   </CommandList>
                 </Command>
               </PopoverContent>

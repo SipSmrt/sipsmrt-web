@@ -143,7 +143,7 @@ export default function MobileAppPage() {
                   iconBg="bg-sky-100"
                   borderColor="border-sky-100"
                   title="Live Hydration Dashboard"
-                  description="View real-time hydration levels with beautiful visualizations and progress rings that update as you drink."
+                  description="View real-time hydration levels with visualizations that update as you drink."
                   tags={["Real-time sync", "Progress rings"]}
                 />
                 <TechFeature
@@ -153,7 +153,7 @@ export default function MobileAppPage() {
                   borderColor="border-green-100"
                   title="Intelligent Reminders"
                   description="AI-powered notifications that learn your routine and remind you to hydrate at optimal times throughout the day."
-                  tags={["AI-powered", "Smart timing"]}
+                  tags={["Notifications"]}
                 />
                 <TechFeature
                   icon={Calendar}
@@ -194,7 +194,7 @@ export default function MobileAppPage() {
                   iconBg="bg-indigo-100"
                   borderColor="border-indigo-100"
                   title="Multi-Device Sync"
-                  description="Seamlessly sync across iPhone, iPad, Apple Watch, and Android devices with cloud backup and offline mode."
+                  description="Seamlessly sync across iOS, Android, and Web with cloud backup and offline mode."
                   tags={["Cloud sync", "Offline mode"]}
                 />
 

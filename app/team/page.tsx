@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Linkedin, Mail, Github } from "lucide-react"
+import { Linkedin, Mail, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Footer from "@/components/layout/footer"
+import Navbar from "@/components/layout/navbar"
 
 export default function TeamPage() {
   const teamMembers = [
@@ -24,7 +25,7 @@ export default function TeamPage() {
       image: "/img/team/matt.png",
       socials: {
         linkedin: "https://www.linkedin.com/in/matthew-emerson-936646259/",
-        email: "matt@sipsmrt.com",
+        email: "emersm3rpi@gmail.com",
       },
     },
     {
@@ -55,7 +56,7 @@ export default function TeamPage() {
       image: "/img/team/nevin.png",
       socials: {
         linkedin: "https://www.linkedin.com/in/nevin-v-joshy/",
-        email: "nevin@sipsmrt.com",
+        email: "joshyn6778@gmail.com",
         github: "https://github.com/nevin-joshy",
       },
     },
@@ -66,29 +67,25 @@ export default function TeamPage() {
       image: "/img/team/jack.png",
       socials: {
         linkedin: "https://www.linkedin.com/in/jack-m-berkowitz/",
-        email: "jack@sipsmrt.com",
+        email: "berkowitz.jac@gmail.com",
       },
     },
   ]
 
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="container py-8">
-        <Link href="/" className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 mb-8">
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </Link>
-
+      <Navbar staticStyle />
+      <div className="container py-8 pt-28">
         <section className="mb-16">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight mb-4">Meet Our Team</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We're a diverse group of engineers, researchers, and health experts united by our passion for improving
+              We're a diverse group of engineers, computer scientists, and designers united by our passion for improving
               human health through innovative hydration technology.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {teamMembers.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-0">

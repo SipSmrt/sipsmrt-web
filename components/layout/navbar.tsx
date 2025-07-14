@@ -56,12 +56,12 @@ export default function Navbar({ staticStyle = false }: NavbarProps) {
                 <DropdownMenuItem>
                   <Link href="/research" className="w-full">Research</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                {/* <DropdownMenuItem>
                   <Link href="/fitness" className="w-full">Fitness</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/healthcare" className="w-full">Healthcare</Link>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuContent>
             </DropdownMenu>
 

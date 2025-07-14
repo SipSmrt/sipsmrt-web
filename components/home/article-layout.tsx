@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Footer from "@/components/layout/footer"
+import Navbar from "@/components/layout/navbar"
 
 interface ArticleLayoutProps {
   title: string
@@ -33,11 +34,8 @@ export default function ArticleLayout({
 }: ArticleLayoutProps) {
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="container py-8">
-        <Link href="/" className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 mb-8">
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </Link>
+      <Navbar staticStyle />
+      <div className="container pt-28 py-8">
 
         <article className="max-w-4xl mx-auto">
           {/* Article Header */}
@@ -89,11 +87,14 @@ export default function ArticleLayout({
             <div className="bg-sky-50 rounded-xl p-6">
               <h3 className="text-lg font-semibold mb-3">Stay Updated</h3>
               <p className="text-muted-foreground mb-4">
-                Get the latest insights on hydration science, fitness, and healthcare delivered to your inbox.
+                Get the latest insights on hydration science, fitness, and healthcare.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button className="bg-sky-600 hover:bg-sky-700">Subscribe to Newsletter</Button>
-                <Button variant="outline">Follow on Social Media</Button>
+              <div className="flex justify-end">
+                <Button asChild className="bg-sky-600 hover:bg-sky-700">
+                  <Link href="https://www.linkedin.com/company/sipsmrt/" target="_blank">
+                    Follow us on LinkedIn
+                  </Link>
+                </Button>
               </div>
             </div>
           </footer>

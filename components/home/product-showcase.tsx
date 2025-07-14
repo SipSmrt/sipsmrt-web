@@ -39,7 +39,7 @@ export default function ProductShowcase() {
           <div className="flex flex-col justify-center space-y-6 pr-8">
             <div className="space-y-2 ml-auto max-w-[600px] text-right">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Meet Our Smart Hydration Boot
+                The Smart Hydration Boot
               </h2>
               <p className="text-muted-foreground md:text-xl">
                 Engineered with precision to track every sip and keep you perfectly hydrated throughout the day.
