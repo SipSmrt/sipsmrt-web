@@ -76,7 +76,7 @@ export default function ArticleLayout({
 
           {/* Hero Image */}
           <div className="relative h-[400px] md:h-[500px] w-full mb-12 rounded-xl overflow-hidden">
-            <Image src={heroImage || "/placeholder.svg"} alt={heroImageAlt} fill className="object-cover" />
+            <Image src={heroImage || "/placeholder.svg"} alt={heroImageAlt} fill priority className="object-cover" />
           </div>
 
           {/* Article Content */}

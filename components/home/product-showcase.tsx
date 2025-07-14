@@ -36,8 +36,8 @@ export default function ProductShowcase() {
 
 
           {/* RIGHT SIDE – HEADLINE + BULLETS + CTA */}
-          <div className="flex flex-col justify-center space-y-6 pr-8">
-            <div className="space-y-2 ml-auto max-w-[600px] text-right">
+          <div className="flex flex-col justify-center space-y-6 px-4 lg:pr-8">
+            <div className="space-y-2 ml-0 lg:ml-auto max-w-[600px] text-left lg:text-right">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 The Smart Hydration Boot
               </h2>
@@ -45,9 +45,9 @@ export default function ProductShowcase() {
                 Engineered with precision to track every sip and keep you perfectly hydrated throughout the day.
               </p>
             </div>
-            <div className="flex flex-col justify-center space-y-4 text-left">
-              {/* Bulleted List */}
-              <ul className="grid gap-2 py-4 pl-30">
+
+            <div className="flex flex-col justify-center space-y-4">
+              <ul className="grid gap-2 py-4 pl-6 md:pl-20">
                 <li className="flex items-center gap-2">
                   <CheckBullet />
                   <span>Precision sensors track every sip</span>
@@ -65,7 +65,7 @@ export default function ProductShowcase() {
                   <span>Available in multiple colors and sizes</span>
                 </li>
               </ul>
-              {/* Shop Now */}
+
               <div className="flex items-center justify-end gap-4">
                 <div className="text-3xl font-bold">$49.99</div>
                 <Button
@@ -76,8 +76,10 @@ export default function ProductShowcase() {
                   <a href="/smrtboot">Shop Now</a>
                 </Button>
               </div>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>

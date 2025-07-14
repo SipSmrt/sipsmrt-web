@@ -6,8 +6,10 @@ export default function AppShowcase() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32" id="app">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
-          <div className="flex flex-col justify-center space-y-4 pl-8">
+        {/* Mobile: image on top. Desktop: grid layout */}
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+          {/* TEXT BLOCK */}
+          <div className="flex flex-col justify-center space-y-4 lg:pl-8">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Track Your Hydration Journey
@@ -17,33 +19,37 @@ export default function AppShowcase() {
                 personalized goals, and actionable insights.
               </p>
             </div>
-            <ul className="grid gap-2 py-4">
+            <ul className="grid gap-2 py-4 pl-6 pr-5">
               <li className="flex items-center gap-2">
                 <CheckBullet />
-                <span>Personalized hydration goals based on your activity level</span>
+                <span>Personalized hydration goals</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckBullet />
-                <span>Real-time tracking and progress visualization</span>
+                <span>Real-time tracking and visualization</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckBullet />
-                <span>Smart reminders that adapt to your daily routine</span>
+                <span>Smart reminders that adapt to you</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckBullet />
-                <span>Health insights and weekly hydration reports</span>
+                <span>Health insights and weekly reports</span>
               </li>
             </ul>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <a href="/mobile-app" className="flex items-center gap-2">
-                <Button className="bg-sky-600 hover:bg-sky-700 w-full">
+
+            {/* Button aligned right on mobile, normal on larger screens */}
+            <div className="flex w-full justify-end lg:justify-start">
+              <a href="/mobile-app">
+                <Button className="bg-sky-600 hover:bg-sky-700">
                   Download Now
                 </Button>
               </a>
             </div>
           </div>
-          <div className="flex items-center justify-center">
+
+          {/* IMAGE BLOCK */}
+          <div className="flex items-center justify-center mb-8 lg:mb-0">
             <div className="relative w-full h-[300px] sm:h-[300px] md:h-[400px]">
               <Image
                 src="/img/mockups/phones/phone_black.png?height=500&width=250"
@@ -51,8 +57,6 @@ export default function AppShowcase() {
                 fill
                 className="object-contain"
               />
-
-              {/* Bottom fade gradient */}
               <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
           </div>

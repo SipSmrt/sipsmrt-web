@@ -15,8 +15,8 @@ export default function Footer() {
             height={48}
             className="h-12 w-auto object-contain brightness-0 invert"
           />
-          <p className="text-center text-sm leading-loose text-sky-100 md:text-left">
-            © 2025 SipSmrt LLC. All rights reserved.
+          <p className="text-center text-sm leading-loose text-sky-100 md:text-left whitespace-nowrap">
+            © 2025 SipSmrt LLC.
           </p>
         </div>
         <div className="flex gap-4">
