@@ -1,10 +1,9 @@
-// Navbar.tsx
 "use client"
 
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { User, ShoppingCart, ChevronDown} from "lucide-react"
+import { User, ShoppingCart, ChevronDown } from "lucide-react"
 import { useScrollPosition } from "@/hooks/use-scroll-position"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,16 +13,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import { MobileNav } from "@/components/mobile-nav"
-import CartSidebar from "@/components/cart-sidebar"
+import { MobileNav } from "@/components/layout/mobile-nav"
+import CartSidebar from "@/components/layout/cart-sidebar"
 
-export default function Navbar() {
-  const { isScrolled } = useScrollPosition()
+type NavbarProps = {
+  staticStyle?: boolean
+}
+
+export default function Navbar({ staticStyle = false }: NavbarProps) {
+  const { isScrolled: scrollState } = useScrollPosition()
   const [cartOpen, setCartOpen] = useState(false)
 
+  const isScrolled = staticStyle ? true : scrollState
   const navLinkClasses = `text-lg font-medium whitespace-nowrap transition-colors hover:underline hover:underline-offset-4`
-
-
 
   return (
     <header
@@ -33,21 +35,21 @@ export default function Navbar() {
           : "bg-transparent border-transparent"
       }`}
     >
-      <div className="container flex h-16 sm:h-18 md:h-22 items-center">
+      <div className="container flex h-16 sm:h-18 md:h-22 items-center px-4" style={{ paddingRight: "15px" }}>
         {/* LEFT */}
         <div className="flex w-1/3 justify-start">
           <nav className="hidden lg:flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                    variant="link"
-                    className={`flex items-center gap-1 ${navLinkClasses} ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
+                  variant="link"
+                  className={`flex items-center gap-1 ${navLinkClasses} ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
                 >
-                    About
-                    <ChevronDown className="h-4 w-4" />
+                  About
+                  <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
+              <DropdownMenuContent align="start" className="z-[9999]">
                 <DropdownMenuItem>
                   <Link href="/team" className="w-full">The Team</Link>
                 </DropdownMenuItem>
@@ -64,20 +66,20 @@ export default function Navbar() {
             </DropdownMenu>
 
             <Link
-                href="/mobile-app"
-                className={`${navLinkClasses} pl-1 xl:pl-2 ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
+              href="/mobile-app"
+              className={`${navLinkClasses} pl-2 xl:pl-3 ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
             >
-                Mobile App
+              The App
             </Link>
             <Link
-                href="/smrtboot"
-                className={`${navLinkClasses} pl-3 xl:pl-5 ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
+              href="/smrtboot"
+              className={`${navLinkClasses} pl-4 xl:pl-5 ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
             >
               SmrtBoot
             </Link>
             <Link
-                href="/contact"
-                className={`${navLinkClasses} pl-3 xl:pl-5 ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
+              href="/contact"
+              className={`${navLinkClasses} pl-4 xl:pl-5 ${isScrolled ? "text-foreground hover:text-sky-600" : "text-white"}`}
             >
               Contact
             </Link>
@@ -85,8 +87,7 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           <MobileNav isScrolled={isScrolled} />
-
-        </div> {/* < End of left side */}
+        </div>
 
         {/* CENTER */}
         <div className="flex w-1/3 justify-center">
@@ -101,29 +102,26 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* RIGHT (PROFILE AND CART BUTTONS) */}
+        {/* RIGHT */}
         <div className={`flex w-1/3 justify-end gap-4 ${isScrolled ? "" : "text-white"}`}>
-            {/* Cart button */}
-            <Button
+          <Button
             onClick={() => setCartOpen(true)}
             variant="ghost"
             className={`size-14 p-0 flex items-center justify-center transform transition-transform duration-150 hover:scale-90 ${isScrolled ? "text-foreground" : "text-white"}`}
+          >
+            <ShoppingCart className="size-5 stroke-[2.5]" />
+          </Button>
+
+          <Link href="/profile">
+            <Button
+              variant="ghost"
+              className={`size-14 p-0 flex items-center justify-center transform transition-transform duration-150 hover:scale-90 ${isScrolled ? "text-foreground" : "text-white"}`}
             >
-                <ShoppingCart className="size-5 stroke-[2.5]" />
+              <User className="size-5 stroke-[2.5]" />
             </Button>
+          </Link>
 
-            {/* Profile button*/}
-            <Link href="/profile">
-                <Button
-                    variant="ghost"
-                    className={`size-14 p-0 flex items-center justify-center transform transition-transform duration-150 hover:scale-90 ${isScrolled ? "text-foreground" : "text-white"}`}
-                >
-                    <User className="size-5 stroke-[2.5]" />
-                </Button>
-            </Link>
-
-            {/* Cart Sidebar (controlled) */}
-            <CartSidebar isOpen={cartOpen} setIsOpen={setCartOpen} />
+          <CartSidebar isOpen={cartOpen} setIsOpen={setCartOpen} />
         </div>
       </div>
     </header>

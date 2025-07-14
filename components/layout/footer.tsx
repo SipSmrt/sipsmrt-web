@@ -4,9 +4,10 @@ import { Linkedin, Instagram, Youtube } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-sky-600 text-white" id="contact">
-      <div className="container flex flex-col items-center justify-center gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+    <footer className="w-full border-t bg-sky-600 text-white" id="footer">
+      <div className="container flex h-24 flex-row items-center justify-between px-4">
+        {/* LOGO, TEXT, ETC */}
+        <div className="flex flex-row items-center gap-4">
           <Image
             src="/img/branding/logo_light.png"
             alt="SipSmrt Logo"

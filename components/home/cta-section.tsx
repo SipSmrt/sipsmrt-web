@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function CtaSection() {
   return (
@@ -14,12 +15,16 @@ export default function CtaSection() {
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row">
-            <Button size="lg" className="bg-white text-sky-600 hover:bg-sky-100">
-              Shop Now
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-sky-700 bg-transparent">
-              Learn More
-            </Button>
+            <Link href="/smrtboot">
+              <Button size="lg" className="bg-white text-sky-600 hover:bg-sky-100">
+                Shop Now
+              </Button>
+            </Link>
+            <Link href="/research">
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-sky-700 bg-transparent">
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

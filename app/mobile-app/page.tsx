@@ -2,10 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
-import Link from "next/link"
 import {
-  ArrowLeft,
-  Download,
   Activity,
   Bell,
   Calendar,
@@ -13,8 +10,7 @@ import {
   Users,
   Smartphone,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Footer from "@/components/footer"
+import Footer from "@/components/layout/footer"
 import {
   Carousel,
   CarouselContent,
@@ -22,6 +18,18 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel"
+import Navbar from "@/components/layout/navbar"
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
+import TechFeature from "@/components/ui/tech-feature"
+
+
 
 const screenshots = [
   { id: 1, alt: "Home", src: "/img/screenshots/home.jpg?height=500&width=250" },
@@ -34,183 +42,68 @@ const screenshots = [
 export default function MobileAppPage() {
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="container py-8">
-        {/* Hero section */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 mb-8"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </Link>
+      <Navbar staticStyle />
+      {/* Hero section */}
+      <div className="container pt-24 lg:pt-18 pb-2">
         <section className="mb-16">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div>
               {/* LEFT SIDE: Header and download buttons */}
-              <h1 className="text-4xl font-bold tracking-tight mb-4">SipSmrt Mobile App</h1>
+              <h1 className="text-4xl font-bold tracking-tight mb-4">SipSmrt Mobile</h1>
               <p className="text-xl text-muted-foreground mb-6">
                 Your personal hydration coach, right in your pocket. Track, analyze, and optimize your hydration habits
                 with our intuitive mobile app.
               </p>
-              <div className="flex flex-wrap justify-start gap-4 items-center">
-                <Link href="#">
-                  <Image
-                    src="/img/buttons/app_store_download_black.svg"
-                    alt="Download on the App Store"
-                    width={160}
-                    height={50}
-                    className="h-[50px] w-auto object-contain hover:opacity-80 transition"
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src="/img/buttons/google_play_download.png"
-                    alt="Get it on Google Play"
-                    width={160}
-                    height={50}
-                    className="h-[50px] w-auto object-contain hover:opacity-80 transition"
-                  />
-                </Link>
-              </div>
+              {/* "Coming Soon" dialogue trigger */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button>
+                    <Image
+                      src="/img/buttons/app_store_download_black.svg"
+                      alt="Download on the App Store"
+                      width={160}
+                      height={50}
+                      className="h-[50px] w-auto object-contain hover:opacity-80 transition"
+                    />
+                  </button>
+                </DialogTrigger>
+                <DialogTrigger asChild>
+                  <button>
+                    <Image
+                      src="/img/buttons/google_play_download.png"
+                      alt="Get it on Google Play"
+                      width={160}
+                      height={50}
+                      className="h-[50px] pl-6 w-auto object-contain hover:opacity-80 transition"
+                    />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-sm text-center">
+                  <DialogHeader>
+                    <DialogTitle>Coming Soon</DialogTitle>
+                    <DialogDescription>
+                      The SipSmrt mobile app is launching soon. Stay tuned!
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+
             </div>
             {/* RIGHT SIDE: Phone Mockup */}
-            <div className="relative w-full max-w-[500px] h-[500px] mx-auto">
+            <div className="relative w-full max-w-[500px] h-[400px] mx-auto">
               <Image
                 src="/img/mockups/phones/phone_black.png?height=500&width=250"
                 alt="SipSmrt App Screenshot"
                 fill
-                className="object-contain"
+                className="object-contain object-bottom z-0"
                 priority
               />
+              {/* Bottom fade gradient */}
+              <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
           </div>
         </section>
 
-        {/* Features */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">App Features</h2>
-          <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-sky-100">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-sky-100 p-3">
-                      <Activity className="h-6 w-6 text-sky-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">Live Hydration Dashboard</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        View real-time hydration levels with beautiful visualizations and progress rings that update as
-                        you drink.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Real-time sync</span>
-                        <span className="px-2 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Progress rings</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-green-100">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-green-100 p-3">
-                      <Bell className="h-6 w-6 text-green-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">Intelligent Reminders</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        AI-powered notifications that learn your routine and remind you to hydrate at optimal times
-                        throughout the day.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">AI-powered</span>
-                        <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Smart timing</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-purple-100">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-purple-100 p-3">
-                      <Calendar className="h-6 w-6 text-purple-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">Personalized Goals</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Custom hydration targets based on your weight, activity level, climate, and health goals with
-                        daily adjustments.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Custom targets</span>
-                        <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Daily adjust</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-orange-100">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-orange-100 p-3">
-                      <BarChart4 className="h-6 w-6 text-orange-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">Advanced Analytics</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Weekly and monthly hydration reports with trends, patterns, and insights to optimize your
-                        hydration habits.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Trend analysis</span>
-                        <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Insights</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-blue-100">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-blue-100 p-3">
-                      <Users className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">Social Challenges</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Join hydration challenges with friends, family, or coworkers. Compete, motivate, and celebrate
-                        achievements together.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Team challenges</span>
-                        <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Leaderboards</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-indigo-100">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-lg bg-indigo-100 p-3">
-                      <Smartphone className="h-6 w-6 text-indigo-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">Multi-Device Sync</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Seamlessly sync across iPhone, iPad, Apple Watch, and Android devices with cloud backup and
-                        offline mode.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full">Cloud sync</span>
-                        <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full">Offline mode</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Screenshots carousel */}
         <section className="mb-16 bg-sky-50 p-8 rounded-xl">
@@ -235,27 +128,93 @@ export default function MobileAppPage() {
             <CarouselNext className="-right-14" />
           </Carousel>
         </section>
+        
 
+        {/* Features */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">App Features</h2>
+          <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left Column */}
+              <div className="space-y-6">
+                <TechFeature
+                  icon={Activity}
+                  iconColor="text-sky-600"
+                  iconBg="bg-sky-100"
+                  borderColor="border-sky-100"
+                  title="Live Hydration Dashboard"
+                  description="View real-time hydration levels with beautiful visualizations and progress rings that update as you drink."
+                  tags={["Real-time sync", "Progress rings"]}
+                />
+                <TechFeature
+                  icon={Bell}
+                  iconColor="text-green-600"
+                  iconBg="bg-green-100"
+                  borderColor="border-green-100"
+                  title="Intelligent Reminders"
+                  description="AI-powered notifications that learn your routine and remind you to hydrate at optimal times throughout the day."
+                  tags={["AI-powered", "Smart timing"]}
+                />
+                <TechFeature
+                  icon={Calendar}
+                  iconColor="text-purple-600"
+                  iconBg="bg-purple-100"
+                  borderColor="border-purple-100"
+                  title="Personalized Goals"
+                  description="Custom hydration targets based on your weight, activity level, climate, and health goals with daily adjustments."
+                  tags={["Custom targets", "Daily adjust"]}
+                />
+              </div>
+              {/* Right Column */}
+              <div className="space-y-6">
+
+                <TechFeature
+                  icon={BarChart4}
+                  iconColor="text-orange-600"
+                  iconBg="bg-orange-100"
+                  borderColor="border-orange-100"
+                  title="Advanced Analytics"
+                  description="Weekly and monthly hydration reports with trends, patterns, and insights to optimize your hydration habits."
+                  tags={["Trend analysis", "Insights"]}
+                />
+
+                <TechFeature
+                  icon={Users}
+                  iconColor="text-blue-600"
+                  iconBg="bg-blue-100"
+                  borderColor="border-blue-100"
+                  title="Social Challenges"
+                  description="Join hydration challenges with friends, family, or coworkers. Compete, motivate, and celebrate achievements together."
+                  tags={["Team challenges", "Leaderboards"]}
+                />
+
+                <TechFeature
+                  icon={Smartphone}
+                  iconColor="text-indigo-600"
+                  iconBg="bg-indigo-100"
+                  borderColor="border-indigo-100"
+                  title="Multi-Device Sync"
+                  description="Seamlessly sync across iPhone, iPad, Apple Watch, and Android devices with cloud backup and offline mode."
+                  tags={["Cloud sync", "Offline mode"]}
+                />
+
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Call to action */}
         <section className="mb-16">
           <div className="bg-sky-600 text-white rounded-xl p-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Hydration Habits?</h2>
+            <h2 className="text-3xl font-bold mb-4">Ready to Change Your Hydration Habits?</h2>
             <p className="text-xl mb-6 text-sky-100">
               Download the SipSmrt app today and start your journey to better hydration.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-white text-sky-600 hover:bg-sky-100">
-                Download Now
-              </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-sky-700 bg-transparent">
-                Learn More
-              </Button>
-            </div>
           </div>
         </section>
+
       </div>
       <Footer />
     </main>
-)
+  )
 }

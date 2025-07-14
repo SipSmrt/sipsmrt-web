@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import CheckBullet from "@/components/check-bullet"
+import CheckBullet from "@/components/ui/check-bullet"
 
 export default function AppShowcase() {
   return (
@@ -51,8 +51,8 @@ export default function AppShowcase() {
                 fill
                 className="object-contain"
               />
-              
-              {/* NEW: bottom fade gradient (always visible) */}
+
+              {/* Bottom fade gradient */}
               <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
           </div>

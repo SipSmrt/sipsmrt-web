@@ -126,3 +126,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Force scrollbar to always be there so navbar doesnt shift around */
+html {
+  overflow-y: scroll;
+}

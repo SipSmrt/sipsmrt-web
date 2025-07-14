@@ -37,7 +37,7 @@ export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
         align="start"
         sideOffset={8}
         alignOffset={0}
-        className="w-[250px] p-0"
+        className="w-[120px] p-0 z-[9999]"
       >
         <Command>
           <CommandList>
@@ -47,7 +47,7 @@ export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
               <PopoverTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="w-full justify-between px-3 py-2 text-sm font-normal"
+                  className="w-full justify-between px-3 py-2 text-sm font-bold"
                 >
                   <span>About</span>
                   <ChevronRight className="h-4 w-4" />
@@ -58,7 +58,7 @@ export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
                 align="start"
                 sideOffset={8}
                 alignOffset={0}
-                className="w-[200px] p-0"
+                className="w-[120px] p-0 z-[9999]"
               >
                 <Command>
                   <CommandList>
@@ -71,9 +71,9 @@ export function MobileNav({ isScrolled }: { isScrolled: boolean }) {
               </PopoverContent>
             </Popover>
 
-            <CommandItem><Link href="/mobile-app" className="w-full">Mobile App</Link></CommandItem>
-            <CommandItem><Link href="/smrtboot" className="w-full">SmrtBoot</Link></CommandItem>
-            <CommandItem><Link href="/contact" className="w-full">Contact</Link></CommandItem>
+            <CommandItem><Link href="/mobile-app" className="pl-1 font-bold w-full">The App</Link></CommandItem>
+            <CommandItem><Link href="/smrtboot" className="pl-1 font-bold w-full">SmrtBoot</Link></CommandItem>
+            <CommandItem><Link href="/contact" className="pl-1 font-bold w-full">Contact</Link></CommandItem>
 
           </CommandList>
         </Command>

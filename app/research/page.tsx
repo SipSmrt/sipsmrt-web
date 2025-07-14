@@ -1,4 +1,4 @@
-import ArticleLayout from "@/components/article-layout"
+import ArticleLayout from "@/components/home/article-layout"
 
 export default function ResearchPage() {
   return (

@@ -1,18 +1,18 @@
 "use client"
 
-import HeroSection from "@/components/hero-section"
-import FeaturesSection from "@/components/features-section"
-import AppShowcase from "@/components/app-showcase"
-import ProductShowcase from "@/components/product-showcase"
-import TestimonialsSection from "@/components/testimonials-section"
-import CtaSection from "@/components/cta-section"
-import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
+import HeroSection from "@/components/home/hero-section"
+import FeaturesSection from "@/components/home/features-section"
+import AppShowcase from "@/components/home/app-showcase"
+import ProductShowcase from "@/components/home/product-showcase"
+import TestimonialsSection from "@/components/home/testimonials-section"
+import CtaSection from "@/components/home/cta-section"
+import Footer from "@/components/layout/footer"
+import Navbar from "@/components/layout/navbar"
 
 // The main page - starting entry point
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="w-full flex flex-col min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <FeaturesSection />

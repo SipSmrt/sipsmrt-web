@@ -3,7 +3,7 @@ import Image from "next/image"
 import { ArrowLeft, Linkedin, Mail, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import Footer from "@/components/footer"
+import Footer from "@/components/layout/footer"
 
 export default function TeamPage() {
   const teamMembers = [

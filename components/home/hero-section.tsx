@@ -2,21 +2,11 @@
 
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import WaveDivider from "./wave-divider"
+import WaveDivider from "@/components/home/wave-divider"
 
 export default function HeroSection() {
   const router = useRouter()
-  const [open, setOpen] = useState(false)
 
   return (
     <section className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-100 via-blue-50 to-white relative overflow-hidden">
@@ -40,25 +30,14 @@ export default function HeroSection() {
               >
                 Shop Now
               </Button>
-              <Dialog open={open} onOpenChange={setOpen}>
-                <DialogTrigger asChild>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 border-sky-600 text-sky-700 hover:bg-sky-50 bg-transparent"
-                  >
-                    Download
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-sm text-center">
-                  <DialogHeader>
-                    <DialogTitle>Coming Soon</DialogTitle>
-                    <DialogDescription>
-                      The SipSmrt mobile app is launching soon. Stay tuned!
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-6 border-sky-600 text-sky-700 hover:bg-sky-50 bg-transparent"
+                onClick={() => router.push("/mobile-app")}
+              >
+                Mobile App
+              </Button>
             </div>
           </div>
           <div className="flex items-center justify-center">
@@ -67,7 +46,7 @@ export default function HeroSection() {
                 src="/img/mockups/phone_boot.png?height=600&width=500"
                 alt="Main mockup"
                 fill
-                className="object-contain drop-shadow-2xl"
+                className="object-contain drop-shadow-[0_20px_24px_rgba(0,0,0,0.3)]"
                 priority
               />
             </div>

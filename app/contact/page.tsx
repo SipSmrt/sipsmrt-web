@@ -1,23 +1,23 @@
-import Link from "next/link"
-import { ArrowLeft, Mail, Phone, MapPin, Clock } from "lucide-react"
+"use client"
+
+import { useForm, ValidationError } from "@formspree/react"
+import { Mail, Phone, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import Footer from "@/components/footer"
+import Footer from "@/components/layout/footer"
+import Navbar from "@/components/layout/navbar"
 
 export default function ContactPage() {
+  const [state, handleSubmit] = useForm("mrbzbbgg")
+
   return (
     <main className="flex min-h-screen flex-col">
-      <div className="flex-1">
+      <Navbar staticStyle />
+      <div className="flex-1 pt-24">
         <div className="container py-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 mb-8">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-
           <section className="mb-16">
-
             {/* Header */}
             <div className="text-center mb-12">
               <h1 className="text-4xl font-bold tracking-tight mb-4">Contact Us</h1>
@@ -26,41 +26,65 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Contact Form and Info */}
-            <div className="grid gap-12 lg:grid-cols-[3fr_2fr]">
+            {/* Grid Layout */}
+            <div className="grid gap-12 lg:grid-cols-[5fr_2fr]">
+
               {/* LEFT: Contact Form */}
-              <div>
+              <div className="lg:pl-12">
                 <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name</Label>
-                      <Input id="firstName" placeholder="John" />
+                {state.succeeded ? (
+                  <div className="p-6 border rounded-lg bg-green-50 text-green-700 font-medium">
+                    Thanks! Your message has been sent.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="firstName">First Name</Label>
+                        <Input id="firstName" name="firstName" placeholder="John" required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="lastName">Last Name</Label>
+                        <Input id="lastName" name="lastName" placeholder="Doe" required />
+                      </div>
                     </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name</Label>
-                      <Input id="lastName" placeholder="Doe" />
+                      <Label htmlFor="email">Email</Label>
+                      <Input id="email" name="email" type="email" placeholder="john@example.com" required />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="john@example.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="How can we help you?" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Tell us more about your inquiry..." className="min-h-[120px]" />
-                  </div>
-                  <Button size="lg" className="w-full bg-sky-600 hover:bg-sky-700">
-                    Send Message
-                  </Button>
-                </form>
-              </div> {/* < End Left Side */}
-              
-              {/* RIGHT: Contact Information */}
+
+                    <div className="space-y-2">
+                      <Label htmlFor="subject">Subject</Label>
+                      <Input id="subject" name="subject" placeholder="How can we help you?" required />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Message</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us more about your inquiry..."
+                        className="min-h-[120px]"
+                        required
+                      />
+                      <ValidationError prefix="Message" field="message" errors={state.errors} />
+                    </div>
+
+                    <Button
+                      size="lg"
+                      className="w-full bg-sky-600 hover:bg-sky-700"
+                      type="submit"
+                      disabled={state.submitting}
+                    >
+                      {state.submitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                )}
+              </div>
+
+              {/* RIGHT: Contact Info */}
               <div className="space-y-8">
                 <div>
                   <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
@@ -70,7 +94,7 @@ export default function ContactPage() {
                         <Mail className="h-6 w-6 text-sky-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold mb-1">Email</h3>
+                        <h3 className="font-semibold mb-1">Email Address</h3>
                         <p className="text-muted-foreground">admin@sipsmrt.com</p>
                       </div>
                     </div>
@@ -80,25 +104,8 @@ export default function ContactPage() {
                         <Phone className="h-6 w-6 text-green-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold mb-1">Phone</h3>
+                        <h3 className="font-semibold mb-1">Phone Number</h3>
                         <p className="text-muted-foreground">+1 (401) 403-1712</p>
-                        <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM EST</p>
-                      </div>
-                    </div>
-
-                    {/* <div className="flex items-start gap-4">
-                      <div className="rounded-lg bg-purple-100 p-3">
-                        <MapPin className="h-6 w-6 text-purple-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold mb-1">Address</h3>
-                        <p className="text-muted-foreground">
-                          123 Innovation Drive
-                          <br />
-                          Tech Valley, CA 94025
-                          <br />
-                          United States
-                        </p>
                       </div>
                     </div>
 
@@ -109,35 +116,16 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold mb-1">Business Hours</h3>
                         <div className="text-muted-foreground space-y-1">
-                          <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                          <p>Saturday: 10:00 AM - 4:00 PM</p>
-                          <p>Sunday: Closed</p>
+                          <p>M-F: 9:00 AM - 5:00 PM EST</p>
                         </div>
                       </div>
-                    </div> */}
-                  </div>
+                    </div>
 
+                  </div>
                 </div>
+              </div>
 
-                {/* FAQ & Docs */}
-                {/* <div className="bg-sky-50 p-6 rounded-xl">
-                  <h3 className="font-semibold mb-3">Need Immediate Help?</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Check out our FAQ section for quick answers to common questions.
-                  </p>
-                  <div className="flex gap-3">
-                    <Button variant="outline" size="sm">
-                      View FAQ
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      Help Docs
-                    </Button>
-                  </div>
-                </div> */}
-
-              </div> {/* < End Right Side */}
-              
-            </div> 
+            </div>
           </section>
         </div>
       </div>

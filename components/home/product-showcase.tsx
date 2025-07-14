@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import CheckBullet from "@/components/check-bullet"
+import CheckBullet from "@/components/ui/check-bullet"
 
 export default function ProductShowcase() {
   return (
