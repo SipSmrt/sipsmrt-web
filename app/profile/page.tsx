@@ -1,6 +1,4 @@
-import Link from "next/link"
-import { ArrowLeft, User, Settings, BarChart3, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { User, Settings, BarChart3, Clock } from "lucide-react"
 import Navbar from "@/components/layout/navbar"
 
 export default function ProfilePage() {
