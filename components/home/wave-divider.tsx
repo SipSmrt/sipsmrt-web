@@ -1,5 +1,3 @@
-"use client"
-
 import { useScrollPosition } from "@/hooks/use-scroll-position"
 
 export default function WaveDivider() {

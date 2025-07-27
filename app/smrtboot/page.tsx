@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { useState } from "react"
 import {
   ShoppingCart,
   Droplets,
@@ -24,6 +27,13 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog"
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select"
 
 const colorVariants = [
   {
@@ -47,16 +57,18 @@ const colorVariants = [
 ]
 
 export default function SmrtBootPage() {
+  const [variant, setVariant] = useState<"blue" | "white" | "black">("blue")
+
   return (
     <main className="flex min-h-screen flex-col">
       <Navbar staticStyle />
       {/* HERO content */}
       <div className="container pt-28 pb-8">
         <section className="mb-16">
-          <div className="grid md:gap-12 items-center text-center justify-items-center lg:grid-cols-2 lg:text-left lg:justify-items-start">
+          <div className="grid md:gap-12 items-center text-center justify-items-center md:grid-cols-2 md:text-left md:justify-items-start">
 
             {/* LEFT COLUMN: Description */}
-            <div>
+            <div className="md:pl-10">
               <h1 className="text-4xl font-bold tracking-tight mb-4">
                 The SmrtBoot
               </h1>
@@ -67,7 +79,7 @@ export default function SmrtBootPage() {
               </p>
 
               {/* Desktop-only price + button */}
-              <div className="hidden sm:flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-4">
                 <div className="text-3xl font-bold">$49.99</div>
                 <Dialog>
                   <DialogTrigger asChild>
@@ -79,7 +91,7 @@ export default function SmrtBootPage() {
                       Add to Cart
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
+                  <DialogContent className="md:max-w-md">
                     <DialogHeader>
                       <DialogTitle>Coming Soon</DialogTitle>
                       <DialogDescription>
@@ -91,29 +103,34 @@ export default function SmrtBootPage() {
               </div>
             </div>
 
-
-            {/* RIGHT COLUMN: Image + Color Tabs */}
+            {/* RIGHT COLUMN: Image + Color selector */}
             <div className="w-full flex justify-center">
-              <Tabs defaultValue="blue" className="w-full max-w-sm">
-                {colorVariants.map((variant) => (
+              <Tabs
+                value={variant}
+                onValueChange={(v) => setVariant(v as typeof variant)}
+                className="w-full max-w-sm"
+              >
+                {colorVariants.map((v) => (
                   <TabsContent
-                    key={variant.value}
-                    value={variant.value}
+                    key={v.value}
+                    value={v.value}
                     className="flex flex-col items-center gap-4 overflow-visible"
                   >
                     {/* Boot Image */}
-                    <div className="p-4 sm:p-6">
-                      <div className="relative w-[260px] h-[210px] sm:w-[340px] sm:h-[260px]">
+                    <div className="p-4 md:p-6">
+                      <div className="relative w-[260px] h-[210px] md:w-[360px]">
                         <Image
-                          src={variant.img}
-                          alt={variant.alt}
+                          src={v.img}
+                          alt={v.alt}
                           fill
                           priority
-                          className="object-contain drop-shadow-[0_5px_7px_rgba(0,0,0,0.6)] md:drop-shadow-[0_20px_24px_rgba(0,0,0,0.6)]"
+                          className="object-contain drop-shadow-[0_5px_7px_rgba(0,0,0,0.6)] md:drop-shadow-[0_20px_24px_rgba(0,0,0,0.6)] overflow-visible"
                         />
                       </div>
                     </div>
-                    <TabsList className="grid grid-cols-3 gap-2 w-full">
+
+                    {/* DESKTOP: three tabs */}
+                    <TabsList className="hidden md:grid grid-cols-3 gap-2 w-full">
                       {colorVariants.map((tab) => (
                         <TabsTrigger key={tab.value} value={tab.value}>
                           {tab.label}
@@ -121,9 +138,27 @@ export default function SmrtBootPage() {
                       ))}
                     </TabsList>
 
-                    {/* Mobile-only price + button */}
-                    <div className="flex sm:hidden w-full justify-end mt-4 pr-1">
-                      <div className="flex flex-row items-center gap-3">
+                    {/* MOBILE: dropdown + price/button */}
+                    <div className="flex md:hidden w-full items-center px-8justify-between mt-4 gap-4">
+                      {/* dropdown */}
+                      <Select
+                        value={variant}
+                        onValueChange={(v) => setVariant(v as typeof variant)}
+                      >
+                        <SelectTrigger className="w-40">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {colorVariants.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+
+                      {/* price + button */}
+                      <div className="flex items-center gap-3">
                         <div className="text-2xl font-bold">$49.99</div>
                         <Dialog>
                           <DialogTrigger asChild>
@@ -146,14 +181,10 @@ export default function SmrtBootPage() {
                         </Dialog>
                       </div>
                     </div>
-
                   </TabsContent>
                 ))}
               </Tabs>
-
-            
             </div>
-
           </div>
         </section>
 

@@ -8,7 +8,7 @@ export default function ProductShowcase() {
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
           {/* LEFT SIDE – IMAGE */}
-          <div className="flex items-center justify-center relative w-full">
+          <div className="flex items-center lg:pr-20 justify-center relative w-full h-full">
 
             {/* Mobile image */}
             <Image
@@ -19,9 +19,6 @@ export default function ProductShowcase() {
               sizes="100vw"
               className="w-full h-auto max-w-md object-contain block lg:hidden"
             />
-            {/* Fade top on mobile image */}
-            <div className="absolute top-0 left-0 w-full h-7 bg-gradient-to-b from-sky-50 to-transparent lg:hidden pointer-events-none z-10" />
-
 
             {/* Desktop image */}
             <Image
@@ -30,8 +27,9 @@ export default function ProductShowcase() {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full h-auto max-w-md object-contain hidden lg:block"
+              className="h-full w-auto max-h-[600px] object-contain hidden lg:block"
             />
+
           </div>
 
 
