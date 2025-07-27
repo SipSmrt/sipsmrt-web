@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import Image from "next/image"
 import {
@@ -89,18 +87,18 @@ export default function MobileAppPage() {
               </Dialog>
 
             </div>
+            
             {/* RIGHT SIDE: Phone Mockup */}
             <div className="relative w-full max-w-[500px] h-[280px] md:h-[370px] mx-auto">
               <Image
                 src="/img/mockups/phones/phone_black.png?"
                 alt="SipSmrt App Screenshot"
                 fill
-                className="object-contain object-bottom z-0"
+                className="object-contain object-bottom z-0 [mask-image:linear-gradient(to_bottom,black_90%,transparent)]"
                 priority
               />
-              {/* Bottom fade gradient */}
-              <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
+
           </div>
         </section>
 

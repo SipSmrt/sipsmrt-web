@@ -1,6 +1,4 @@
 // components/cart-sidebar.tsx
-"use client"
-
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { ShoppingCart } from "lucide-react"
 
@@ -24,7 +22,7 @@ export default function CartSidebar({ isOpen, setIsOpen }: CartSidebarProps) {
             <ShoppingCart className="h-12 w-12 text-gray-400" />
           </div>
           <h3 className="text-xl font-semibold mb-2">Your cart is empty</h3>
-          <p className="text-muted-foreground mb-6">Add some products to get started with your hydration journey.</p>
+          <p className="text-muted-foreground mb-6 px-10">Add some products to get started with your hydration journey.</p>
           <button
             className="px-4 py-2 rounded-md text-white bg-sky-600 hover:bg-sky-700"
             onClick={() => setIsOpen(false)}

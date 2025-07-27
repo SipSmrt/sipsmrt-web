@@ -8,7 +8,8 @@ export default function AppShowcase() {
       <div className="container px-4 md:px-6">
         {/* Mobile: image on top. Desktop: grid layout */}
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
-          {/* TEXT BLOCK */}
+          
+          {/* LEFT SIDE: TEXT BLOCK */}
           <div className="flex flex-col justify-center space-y-4 lg:pl-8">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -48,16 +49,15 @@ export default function AppShowcase() {
             </div>
           </div>
 
-          {/* IMAGE BLOCK */}
-          <div className="flex items-center justify-center mb-8 lg:mb-0">
+          {/* RIGHT SIDE: PHONE IMAGE */}
+          <div className="flex items-center lg:pl-20 justify-center mb-8 lg:mb-0">
             <div className="relative w-full h-[300px] sm:h-[300px] md:h-[400px]">
               <Image
                 src="/img/mockups/phones/phone_black.png?height=500&width=250"
                 alt="SipSmrt App Screenshot"
                 fill
-                className="object-contain"
+                className="object-bottom object-contain [mask-image:linear-gradient(to_bottom,black_90%,transparent)]"
               />
-              <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
             </div>
           </div>
         </div>
