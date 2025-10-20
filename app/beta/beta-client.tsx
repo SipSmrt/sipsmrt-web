@@ -85,7 +85,7 @@ export default function BetaLandingClient() {
               SipSmrt Beta
             </h1>
             <p className="text-lg md:text-xl text-white leading-relaxed" style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.8)" }}>
-              Help us improve our hydration tracking and find bugs in our platform. Currently available for iOS via TestFlight.
+              Help us improve our hydration tracking with your feedback! Currently available for iOS via TestFlight.
             </p>
 
             {/* Desktop buttons */}
