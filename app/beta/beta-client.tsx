@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -25,24 +25,43 @@ export default function BetaLandingClient() {
   }, [])
   const prismScale = isDesktop ? 2 : 1
 
-  // Page-only black background for bounce/overscroll
+  // black background + stable vh + bar height
+  const barRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const html = document.documentElement
     const body = document.body
     const prevHtmlBg = html.style.backgroundColor
     const prevBodyBg = body.style.backgroundColor
 
+    const setVars = () => {
+      // lock "vh" to innerHeight so it does not change while scrolling
+      html.style.setProperty("--vh", `${window.innerHeight * 0.01}px`)
+      if (barRef.current) {
+        html.style.setProperty("--barh", `${barRef.current.offsetHeight}px`)
+      }
+    }
     html.style.backgroundColor = "#000"
     body.style.backgroundColor = "#000"
-
+    setVars()
+    window.addEventListener("resize", setVars)
     return () => {
+      window.removeEventListener("resize", setVars)
       html.style.backgroundColor = prevHtmlBg
       body.style.backgroundColor = prevBodyBg
+      html.style.removeProperty("--vh")
+      html.style.removeProperty("--barh")
     }
   }, [])
 
   return (
-    <main className="relative flex min-h-dvh flex-col bg-black overflow-hidden pt-[max(12px,env(safe-area-inset-top))]">
+    <main
+      className="relative flex min-h-[calc(var(--vh,1vh)*100)] flex-col bg-black overflow-hidden
+                 pt-[max(12px,env(safe-area-inset-top))]"
+      style={{
+        // reserve space for fixed bar
+        paddingBottom: "calc(var(--barh,0px) + env(safe-area-inset-bottom))",
+      }}
+    >
       {/* Prism Background */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <Prism
@@ -50,7 +69,7 @@ export default function BetaLandingClient() {
           timeScale={0.2}
           height={3.5}
           baseWidth={5.5}
-          scale={prismScale}   // 2 desktop, 1 mobile
+          scale={prismScale} // 2 desktop, 1 mobile
           hueShift={0}
           colorFrequency={0.1}
           noise={0.0}
@@ -90,9 +109,14 @@ export default function BetaLandingClient() {
             </div>
           </div>
 
-          {/* Mockup */}
+          {/* Mockup: lock height */}
           <div className="flex items-center justify-center flex-1 lg:flex-none">
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] aspect-[9/16] max-h-[60dvh]">
+            <div
+              className="relative w-full max-w-[320px] sm:max-w-[380px] aspect-[9/16]"
+              style={{
+                maxHeight: "calc(var(--vh, 1vh) * 55)", // ~55% of locked viewport
+              }}
+            >
               <Image
                 src="/img/mockups/phones/beta-phone.png"
                 alt="SipSmrt App Mockup"
@@ -103,9 +127,15 @@ export default function BetaLandingClient() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Mobile buttons */}
-        <div className="lg:hidden mt-6 sm:mt-8 pb-[max(20px,env(safe-area-inset-bottom))] sticky bottom-0 bg-black/60 backdrop-blur-sm flex flex-col sm:flex-row gap-3 justify-center">
+      {/* Mobile buttons: fixed, measured, and safe-area aware */}
+      <div
+        ref={barRef}
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-20 bg-black/80 backdrop-blur-sm border-t border-white/10"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-3 flex flex-col sm:flex-row gap-3 justify-center">
           <Button
             size="lg"
             className={`${BTN_BASE} ${BTN_PRIMARY}`}
